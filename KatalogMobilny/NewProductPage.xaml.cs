@@ -1,25 +1,16 @@
-using Microsoft.Extensions.Logging;
+namespace KatalogMobilny;
 
-namespace KatalogMobilny
+public partial class NewProductPage : ContentPage
 {
-    public static class MauiProgram
+    private int licznik = 0;
+    public NewProductPage()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+        InitializeComponent();
+    }
 
-#if DEBUG
-            builder.Logging.AddDebug();
-#endif
-
-            return builder.Build();
-        }
+    private void NowyProdukt_Clicked(object sender, EventArgs e)
+    {
+        licznik++;
+        EtykietaWyniku.Text = $"Kliknięto {licznik} razy";
     }
 }
